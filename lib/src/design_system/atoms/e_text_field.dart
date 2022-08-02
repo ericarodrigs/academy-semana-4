@@ -5,14 +5,14 @@ class ETextField extends StatelessWidget {
     Key? key,
     required this.labelText,
     required this.textInputAction,
-    required this.validator,
+    required this.textValidator,
     this.keyboardType,
     this.obscureText,
   }) : super(key: key);
 
   final String labelText;
   final TextInputAction? textInputAction;
-  final String? Function(String?)? validator;
+  final String textValidator;
   final TextInputType? keyboardType;
   final bool? obscureText;
 
@@ -23,7 +23,12 @@ class ETextField extends StatelessWidget {
       child: TextFormField(
         textInputAction: textInputAction,
         keyboardType: keyboardType,
-        validator: validator,
+        validator: (String? value) {
+          if (value == null || value.isEmpty) {
+            return textValidator;
+          }
+          return null;
+        },
         obscureText: obscureText ?? false,
         cursorColor: Colors.black,
         decoration: InputDecoration(

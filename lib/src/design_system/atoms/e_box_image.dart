@@ -6,10 +6,6 @@ class EBoxImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Image.asset(pathToImage, height: 180, fit: BoxFit.fill),
-      ],
-    );
+    return Image.asset(pathToImage, height: 180);
   }
 }

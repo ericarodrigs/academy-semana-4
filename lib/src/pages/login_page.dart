@@ -17,54 +17,48 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Form(
-        key: formKey,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              margin: const EdgeInsets.all(16),
-              child: ETextField(
-                labelText: 'E-mail',
-                textInputAction: TextInputAction.next,
-                validator: (String? value) {
-                  if (value == null || value.isEmpty) {
-                    return 'E-mail não pode ser vazio';
-                  }
-                  return null;
-                },
-                keyboardType: TextInputType.emailAddress,
-              ),
+    return WillPopScope(
+      onWillPop: () async => false,
+      child: Scaffold(
+        body: Form(
+          key: formKey,
+          child: Container(
+            margin: const EdgeInsets.all(16),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const ETextField(
+                  labelText: 'E-mail',
+                  textInputAction: TextInputAction.next,
+                  textValidator: 'E-mail não pode ser vazio',
+                  keyboardType: TextInputType.emailAddress,
+                ),
+                const ETextField(
+                  labelText: 'Senha',
+                  textInputAction: TextInputAction.done,
+                  textValidator: 'Senha não pode ser vazia',
+                  obscureText: true,
+                ),
+                Container(
+                  margin: const EdgeInsets.only(top: 16),
+                  child: EElevatedButton(
+                      onPressed: () async {
+                        if (formKey.currentState!.validate()) {
+                          debugPrint('cadastro realizado');
+                          await Navigator.of(context)
+                                  .pushReplacementNamed('/home') ??
+                              false;
+                        } else {
+                          debugPrint(
+                              'erro ao cadastrar, verifique os campos e tente novamente');
+                        }
+                      },
+                      color: Colors.blue,
+                      text: 'Login'),
+                )
+              ],
             ),
-            Container(
-              margin: const EdgeInsets.all(16),
-              child: ETextField(
-                labelText: 'Senha',
-                textInputAction: TextInputAction.done,
-                validator: (String? value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Senha não pode ser vazia';
-                  }
-                  return null;
-                },
-                obscureText: true,
-              ),
-            ),
-            EElevatedButton(
-                onPressed: () async {
-                  if (formKey.currentState!.validate()) {
-                    debugPrint('cadastro realizado');
-                    await Navigator.of(context).pushReplacementNamed('/home') ??
-                        false;
-                  } else {
-                    debugPrint(
-                        'erro ao cadastrar, verifique os campos e tente novamente');
-                  }
-                },
-                color: Colors.blue,
-                text: 'Login')
-          ],
+          ),
         ),
       ),
     );

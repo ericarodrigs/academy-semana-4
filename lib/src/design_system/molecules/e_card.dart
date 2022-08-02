@@ -27,24 +27,14 @@ class ECard extends StatelessWidget {
           children: [
             Expanded(
               flex: 2,
-              child: Container(
-                margin: const EdgeInsets.only(top: 5, bottom: 5),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    EBoxImage(pathToImage: pathToImage),
-                  ],
-                ),
-              ),
+              child: EBoxImage(pathToImage: pathToImage),
             ),
             Expanded(
               flex: 3,
               child: Container(
-                padding: const EdgeInsets.only(right: 8),
                 height: 180,
+                padding: const EdgeInsets.only(right: 8),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     ETextH5(textH5: title),
                     ETextH6(textH6: description)

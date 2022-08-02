@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 
 class ETextH6 extends StatelessWidget {
-  const ETextH6({Key? key, required this.textH6}) : super(key: key);
+  const ETextH6(
+      {Key? key, required this.textH6, this.fontWeight = FontWeight.w300})
+      : super(key: key);
   final String textH6;
+  final FontWeight? fontWeight;
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +14,7 @@ class ETextH6 extends StatelessWidget {
       maxLines: 7,
       textAlign: TextAlign.justify,
       overflow: TextOverflow.ellipsis,
-      style: const TextStyle(fontWeight: FontWeight.w300, fontSize: 16),
+      style: TextStyle(fontWeight: fontWeight, fontSize: 16),
     );
   }
 }

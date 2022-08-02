@@ -15,22 +15,20 @@ class ErrorPage extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const SizedBox(
-            child: Center(child: ETextH1(textH1: '404', color: Colors.red)),
-          ),
-          SizedBox(
-            width: MediaQuery.of(context).size.width,
-            child: const Center(
-                child: ETextH4(
-              textH4: 'Alguma coisa deu errado. Tente recomeçar.',
-            )),
-          ),
-          EElevatedButton(
-              onPressed: () {
-                Navigator.of(context).pushNamed('/home');
-              },
-              color: Colors.red,
-              text: 'Recomeçar')
+          const Center(child: ETextH1(textH1: '404', color: Colors.red)),
+          const Center(
+              child: ETextH4(
+            textH4: 'Alguma coisa deu errado. Tente recomeçar.',
+          )),
+          Container(
+            margin: const EdgeInsets.all(16),
+            child: EElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).pushNamed('/home');
+                },
+                color: Colors.red,
+                text: 'Recomeçar'),
+          )
         ],
       ),
     );
