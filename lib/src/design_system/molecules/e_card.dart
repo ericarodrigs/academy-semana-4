@@ -40,7 +40,8 @@ class ECard extends StatelessWidget {
             ),
             Expanded(
               flex: 3,
-              child: SizedBox(
+              child: Container(
+                padding: const EdgeInsets.only(right: 8),
                 height: 180,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,

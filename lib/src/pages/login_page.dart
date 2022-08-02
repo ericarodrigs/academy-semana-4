@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:navigation/src/design_system/atoms/e_text_field.dart';
+
+import '../design_system/atoms/e_elevated_button.dart';
 
 class LoginPage extends StatefulWidget {
   static const String routeName = '/login';
@@ -22,73 +25,45 @@ class _LoginPageState extends State<LoginPage> {
           children: [
             Container(
               margin: const EdgeInsets.all(16),
-              child: TextFormField(
+              child: ETextField(
+                labelText: 'E-mail',
+                textInputAction: TextInputAction.next,
                 validator: (String? value) {
                   if (value == null || value.isEmpty) {
-                    return 'Este campo não pode ser vazio';
+                    return 'E-mail não pode ser vazio';
                   }
                   return null;
                 },
-                cursorColor: Colors.black,
-                decoration: const InputDecoration(
-                  labelText: 'E-mail',
-                  labelStyle: TextStyle(color: Colors.black),
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.black, width: 1),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.black, width: 1),
-                  ),
-                  disabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.grey, width: 1),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.black, width: 2),
-                  ),
-                ),
+                keyboardType: TextInputType.emailAddress,
               ),
             ),
             Container(
               margin: const EdgeInsets.all(16),
-              child: TextFormField(
-                obscureText: true,
+              child: ETextField(
+                labelText: 'Senha',
+                textInputAction: TextInputAction.done,
                 validator: (String? value) {
                   if (value == null || value.isEmpty) {
-                    return 'Este campo não pode ser vazio';
+                    return 'Senha não pode ser vazia';
                   }
                   return null;
                 },
-                cursorColor: Colors.black,
-                decoration: const InputDecoration(
-                  labelText: 'Senha',
-                  labelStyle: TextStyle(color: Colors.black),
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.black, width: 1),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.black, width: 1),
-                  ),
-                  disabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.grey, width: 1),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.black, width: 2),
-                  ),
-                ),
+                obscureText: true,
               ),
             ),
-            ElevatedButton(
+            EElevatedButton(
                 onPressed: () async {
                   if (formKey.currentState!.validate()) {
-                    debugPrint("cadastro realizado");
+                    debugPrint('cadastro realizado');
                     await Navigator.of(context).pushReplacementNamed('/home') ??
                         false;
                   } else {
                     debugPrint(
-                        "erro ao cadastrar, verifique os campos e tente novamente");
+                        'erro ao cadastrar, verifique os campos e tente novamente');
                   }
                 },
-                child: const Text("Login"))
+                color: Colors.blue,
+                text: 'Login')
           ],
         ),
       ),

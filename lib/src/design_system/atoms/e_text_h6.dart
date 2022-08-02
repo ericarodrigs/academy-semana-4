@@ -9,6 +9,7 @@ class ETextH6 extends StatelessWidget {
     return Text(
       textH6,
       maxLines: 7,
+      textAlign: TextAlign.justify,
       overflow: TextOverflow.ellipsis,
       style: const TextStyle(fontWeight: FontWeight.w300, fontSize: 16),
     );

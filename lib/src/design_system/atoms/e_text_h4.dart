@@ -8,6 +8,7 @@ class ETextH4 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       textH4,
+      textAlign: TextAlign.center,
       style: const TextStyle(fontWeight: FontWeight.w400, fontSize: 32),
     );
   }

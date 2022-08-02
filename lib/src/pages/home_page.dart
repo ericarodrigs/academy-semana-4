@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:navigation/src/design_system/molecules/e_card.dart';
 import 'package:navigation/src/model/series.dart';
 import 'package:navigation/src/pages/error_page.dart';
-
 import 'details_page.dart';
 
 class HomePage extends StatelessWidget {
@@ -11,6 +10,7 @@ class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
 
   final Series thisIsUs = Series(
+      1,
       'assets/cover_this_is_us.jpeg',
       'This Is Us',
       'A história da família Pearson começa em 1979, no dia que os '
@@ -19,14 +19,8 @@ class HomePage extends StatelessWidget {
           'de amor, mas também de dor, e moldam para sempre a vida de todos.',
       moreInformation: '8.7/10 - Drama');
 
-  final Series friends = Series(
-      'assets/cover_friends.jpg',
-      'Friends',
-      'Seis amigos, três homens e três mulheres, enfrentam a vida e os amores '
-          'em Nova York e adoram passar o tempo livre na cafeteria Central Perk.',
-      moreInformation: '8.9/10 - Comédia');
-
   final Series strangerThings = Series(
+      2,
       'assets/cover_stranger_things.jpg',
       'Stranger Things',
       'Stranger Things é uma série de televisão via streaming estadunidense '
@@ -34,17 +28,25 @@ class HomePage extends StatelessWidget {
           'criada, escrita e dirigida pelos irmãos Matt e Ross Duffer para a '
           'plataforma Netflix. Os irmãos Duffer, Shawn Levy e Dan Cohen são '
           'também os produtores executivos.',
+      moreInformation: '8.7/10 - Ficção Científica');
+
+  final Series friends = Series(
+      3,
+      'assets/cover_friends.jpg',
+      'Friends',
+      'Seis amigos, três homens e três mulheres, enfrentam a vida e os amores '
+          'em Nova York e adoram passar o tempo livre na cafeteria Central Perk.',
       isPageDetails: false);
 
   @override
   Widget build(BuildContext context) {
-    List<Series> series = <Series>[thisIsUs, friends, strangerThings];
+    List<Series> series = <Series>[thisIsUs, strangerThings, friends];
 
     return WillPopScope(
       onWillPop: () async => false,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text("Home Page"),
+          title: const Text("Séries"),
           automaticallyImplyLeading: false,
         ),
         body: ListView.builder(
