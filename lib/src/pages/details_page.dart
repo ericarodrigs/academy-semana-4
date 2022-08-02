@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:navigation/src/pages/login_page.dart';
+import '../model/series.dart';
 
 class DetailsPage extends StatelessWidget {
-
   static const String routeName = '/details';
 
-  const DetailsPage({Key? key}) : super(key: key);
+  const DetailsPage({Key? key, required this.series}) : super(key: key);
+  final Series series;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Details"),
-        automaticallyImplyLeading: false,
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -20,16 +19,12 @@ class DetailsPage extends StatelessWidget {
         children: [
           SizedBox(
               width: MediaQuery.of(context).size.width,
-              child: const Center(
-                  child: Text('Somente um teste')
-              )
-          ),
+              child: Center(child: Text(series.title))),
           ElevatedButton(
               onPressed: () {
                 Navigator.of(context).pushNamed('/error');
-                },
-              child: const Text("Continuar")
-          )
+              },
+              child: const Text("Continuar"))
         ],
       ),
     );

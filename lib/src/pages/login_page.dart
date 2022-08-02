@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'details_page.dart';
-import 'home_page.dart';
-
 class LoginPage extends StatefulWidget {
   static const String routeName = '/login';
 
@@ -81,7 +78,6 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             ElevatedButton(
-              //TODO resolver problema do voltar no triangulo
                 onPressed: () async {
                   if (formKey.currentState!.validate()) {
                     debugPrint("cadastro realizado");

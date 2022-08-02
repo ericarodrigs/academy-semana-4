@@ -9,6 +9,6 @@ class App extends StatelessWidget {
     return const MaterialApp(
       initialRoute: '/login',
       onGenerateRoute: RouteGenerator.onGenerateRoute,
-      );
+    );
   }
 }

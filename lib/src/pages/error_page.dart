@@ -24,8 +24,8 @@ class ErrorPage extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).pushNamed('/home');
               },
-              child: const Text("Recomeçar"),
-              style: ElevatedButton.styleFrom(primary: Colors.red))
+              style: ElevatedButton.styleFrom(primary: Colors.red),
+              child: const Text("Recomeçar"))
         ],
       ),
     );
